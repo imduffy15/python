@@ -58,11 +58,3 @@ bash "build-and-install-python" do
   not_if { ::File.exists?(install_path) }
 end
 
-# Link install as the default python, to support Python 3.x
-# Otherwise the pip and virtualenv recipes won't work properly
-link node['python']['binary'] do
-  to install_path
-  not_if { ::File.exists?(node['python']['binary']) }
-end
-
-

@@ -18,7 +18,7 @@
 # limitations under the License.
 #
 
-default['python']['install_method'] = 'package'
+default['python']['install_method'] = 'source'
 
 if python['install_method'] == 'package'
   case platform
@@ -31,7 +31,7 @@ else
   default['python']['prefix_dir']         = '/usr/local'
 end
 
-default['python']['binary'] = "#{node['python']['prefix_dir']}/bin/python"
+default['python']['binary'] = "#{node['python']['prefix_dir']}/bin/python2.7"
 
 default['python']['url'] = 'http://www.python.org/ftp/python'
 default['python']['version'] = '2.7.7'
@@ -39,7 +39,7 @@ default['python']['checksum'] = '3b477554864e616a041ee4d7cef9849751770bc7c39adaf
 default['python']['configure_options'] = %W{--prefix=#{python['prefix_dir']}}
 default['python']['make_options'] = %W{install}
 
-default['python']['pip_location'] = "#{node['python']['prefix_dir']}/bin/pip"
+default['python']['pip_location'] = "#{node['python']['prefix_dir']}/bin/pip2.7"
 default['python']['virtualenv_location'] = "#{node['python']['prefix_dir']}/bin/virtualenv"
 default['python']['setuptools_version'] = nil # defaults to latest
 default['python']['virtualenv_version'] = nil

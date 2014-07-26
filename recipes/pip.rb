@@ -24,13 +24,13 @@
 # omnibus/source: /opt/local/bin/pip (sha 29ce9874)
 
 if node['python']['install_method'] == 'source'
-  pip_binary = "#{node['python']['prefix_dir']}/bin/pip"
+  pip_binary = "#{node['python']['prefix_dir']}/bin/pip2.7"
 elsif platform_family?("rhel", "fedora")
-  pip_binary = "/usr/bin/pip"
+  pip_binary = "/usr/bin/pip2.7"
 elsif platform_family?("smartos")
-  pip_binary = "/opt/local/bin/pip"
+  pip_binary = "/opt/local/bin/pip2.7"
 else
-  pip_binary = "/usr/local/bin/pip"
+  pip_binary = "/usr/local/bin/pip2.7"
 end
 
 cookbook_file "#{Chef::Config[:file_cache_path]}/get-pip.py" do
